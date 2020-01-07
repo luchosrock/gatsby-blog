@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React from "react";
 export const Header = ({ siteTitle, siteDescription }) => (
   <div>
