@@ -26,12 +26,16 @@ exports.createPages = ({ actions, graphql }) => {
     const posts = result.data.allMdx.nodes;
 
     // create page for each mdx file
-    posts.forEach(post => {
+    posts.forEach((post, index) => {
+      const prev = index === posts.length - 1 ? null : posts[index + 1];
+      const next = index === 0 ? null : posts[index - 1];
       createPage({
         path: post.fields.slug,
         component: blogPostTemplate,
         context: {
-          slug: post.fields.slug
+          slug: post.fields.slug,
+          prev,
+          next
         }
       });
     });
@@ -48,4 +52,9 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value
     });
   }
+};
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    devtool: "eval-source-map"
+  });
 };
