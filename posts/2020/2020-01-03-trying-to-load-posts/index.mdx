@@ -5,3 +5,20 @@ published: true
 ---
 
 # h1 Not so much to talk about
+
+```jsx
+export default ({ data }) => {
+  return (
+    <>
+      <Layout>
+        {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
+          <Link to={fields.slug}>
+            <h1>{frontmatter.title}</h1>
+            <p>{frontmatter.date}</p>
+          </Link>
+        ))}
+      </Layout>
+    </>
+  );
+};
+```

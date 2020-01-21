@@ -10,7 +10,11 @@ const Dump = props => (
   >
     {Object.entries(props).map(([key, val]) => (
       <pre key={key}>
-        <strong style={{ color: "white", background: "red" }}>{key} 💩</strong>
+        <span role="img" aria-label="poo">
+          <strong style={{ color: "white", background: "red" }}>
+            {key} 💩
+          </strong>
+        </span>
         {JSON.stringify(val, "", " ")}
       </pre>
     ))}

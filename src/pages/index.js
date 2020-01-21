@@ -5,7 +5,6 @@ import Dump from "../components/Dump";
 export default ({ data }) => {
   return (
     <>
-      <Dump data={data} />
       <Layout>
         {data.allMdx.nodes.map(({ id, excerpt, frontmatter, fields }) => (
           <Link to={fields.slug}>
