@@ -2,16 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import { useSiteMetadata } from "../hooks/useSiteMetadata";
 import { Header } from "./Header";
-const AppStyles = styled.main`
-  width: 800px;
+import GlobalStyle from "./GlobalStyle";
+
+const App = styled.main`
   margin: 0 auto;
+  padding: 0;
+  width: 100%;
 `;
 export const Layout = ({ children }) => {
   const { title, description } = useSiteMetadata();
   return (
-    <AppStyles>
+    <App>
+      <GlobalStyle />
       <Header siteTitle={title} siteDescription={description} />
       {children}
-    </AppStyles>
+    </App>
   );
 };
